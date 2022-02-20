@@ -1,0 +1,192 @@
+<!-- Happy Valentines day Codepen! -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <title></title>
+</head>
+<body>
+
+<div id="envelope">
+   <div class="line1"></div>
+   <div class="line2"></div>
+   <div id="heart">
+      <input type="checkbox" >
+      <div class="half one"></div>
+      <div class="half two"></div>
+      <div class="half three"></div>
+   </div>
+</div>
+
+<div id="card">
+    <div class="side one"></div>
+    <div class="side two">
+       <h2>Amor Keyla</h2>
+       <p>Keyla, que esto sea el inicio de algo que no tenga fin cielo</p>
+       <p>Quiero que sepas que te amo mucho amor mío. Espero le guste este detalle reina :3 </p>
+       <p>Te amo Keyla </p>
+    </div>
+</div>
+</body>
+</html>
+
+<style type="text/css">
+ @import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+*{
+   box-sizing:border-box;
+}
+
+body {
+   background: pink;
+   font-family: 'Sacramento', cursive;
+   margin: 0;
+}
+
+#envelope {
+   width: 550px;
+   height: 300px;
+   background: #eee;
+   border-radius: 5px;
+   position: relative;
+   margin: 10em auto;
+   overflow:hidden;
+   animation-name:fall;
+   box-shadow:2px 2px 2px #ddd;
+}
+
+@keyframes fall {
+    0% {
+      transform:translate(2em, 2em);
+   }
+   20% {
+      transform:translate(4em, 4em);
+   }
+   40% {
+      transform:translate(6em, 6em);
+   }
+   60% {
+      transform:translate(8em, 8em);
+   }
+   80% {
+      transform:translate(10em, 10em);
+      opacity:0;
+   }
+   100% {
+      display:none;
+      opacity:0;
+   }
+}
+
+
+.line1 {
+   height: 300px;
+   background: #999;
+   width: 5px;
+   transform: rotate(-60deg);
+   transform-origin: 5px 0;
+   postiion: absolute;
+}
+.line2 {
+   height: 300px;
+   background: #999;
+   width: 5px;
+   transform: rotate(60deg);
+   transform-origin: 530px 320px;
+   postiion: absolute;
+}
+#heart input[type=checkbox] {
+   position:absolute;
+   top:43%;
+   left:45%;
+   z-index:4;
+   height:50px;
+   width:50px;
+   cursor:pointer;
+   opacity:0;
+}
+.half {
+   display: block;
+   width: 30px;
+   height: 30px;
+   background: red;
+   position: absolute;
+}
+.half.one {
+   top: 45%;
+   left: 45%;
+   -moz-border-radius: 50px 50px 0 0;
+   border-radius: 50px 50px 0 0;
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   -o-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+}
+.half.two {
+   top: 45%;
+   right: 45%;
+   -moz-border-radius: 50px 50px 0 0;
+   border-radius: 50px 50px 0 0;
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+}
+.half.three {
+   top: 49%;
+   right: 47.3%;
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+}
+
+#card {
+/*    border:1px solid #000; */
+   height:500px;
+   width:800px;
+   margin:5em auto;
+   position:relative;
+   display:flex;
+   visibility:hidden;
+}
+#card h2 {
+   font-size:3em;
+   margin:0;
+   color:pink;
+}
+#card p {
+   font-size:1.5em;
+}
+.side {
+   background:#eee;
+   height:500px;
+   width:400px;
+/*    border:1px solid red; */
+   padding:10px;
+}
+.side.one {
+   width:300px;
+   transform:skew(10deg,20deg);
+   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
+}
+.side.two {
+   transform:skew(10deg,-15deg);
+   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+</style>
+
+<script type="text/javascript">
+$('input[type=checkbox]').change(function(){
+   $('#envelope').css({'animation':'fall 3s linear 1', '-webkit-animation':'fall 3s linear 1'});
+   $('#envelope').fadeOut(1800, function() {
+         $('#card').css({'visibility':'visible'});
+   });
+});
+</script>
